@@ -9,10 +9,13 @@
 
 <h1>Top 10 Podcasts</h1>
 
-{% for show, urls in shows_and_urls.items() %}
+{% for show, data in shows_and_data.items() %}
     <h2>{{ show }}</h2>
+    <h3>Total Episodes: {{ data['total_episodes'] }}</h3>
+    <h3><a href="{{ data['external_url'] }}" target="_blank">{{ data['external_url'] }}</a></h3>
+    <h3>{{ data['description'] }}</h3>
     <ul>
-        {% for url in urls %}
+        {% for url in data['urls'] %}
             <li>
                 <audio controls>
                     <source src="{{ url }}" type="audio/mp3">
