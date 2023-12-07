@@ -12,6 +12,7 @@
 {% for show, data in shows_and_data.items() %}
     <h2>{{ show }}</h2>
     <h3>Total Episodes: {{ data['total_episodes'] }}</h3>
+    <h3>Average episode time (in minutes): {{ data['duration'] }}</h3>
     <h3><a href="{{ data['external_url'] }}" target="_blank">{{ data['external_url'] }}</a></h3>
     <h3>{{ data['description'] }}</h3>
     <ul>
