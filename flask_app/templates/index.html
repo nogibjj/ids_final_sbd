@@ -3,29 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top 10 Episodes</title>
+    <title>Flask App</title>
 </head>
 <body>
-
-<h1>Top 10 Podcasts</h1>
-
-{% for show, data in shows_and_data.items() %}
-    <h2>{{ show }}</h2>
-    <h3>Total Episodes: {{ data['total_episodes'] }}</h3>
-    <h3>Average episode time (in minutes): {{ data['duration'] }}</h3>
-    <h3><a href="{{ data['external_url'] }}" target="_blank">{{ data['external_url'] }}</a></h3>
-    <h3>{{ data['description'] }}</h3>
-    <ul>
-        {% for url in data['urls'] %}
-            <li>
-                <audio controls>
-                    <source src="{{ url }}" type="audio/mp3">
-                    Your browser does not support the audio element.
-                </audio>
-            </li>
-        {% endfor %}
-    </ul>
-{% endfor %}
-
+    <h1>Welcome to Flask App</h1>
+    <form action="{{ url_for('red') }}" method="get">
+        <button type="submit">Red</button>
+    </form>
+    <form action="{{ url_for('blue') }}" method="get">
+        <button type="submit">Blue</button>
+    </form>
 </body>
 </html>

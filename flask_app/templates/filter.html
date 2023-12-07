@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Selection</title>
+</head>
+<body>
+
+<h1>Filter Selection</h1>
+
+<form method="POST" action="/filter">
+    <label>
+        <input type="radio" name="filter_type" value="filter_by_spot" required>
+        Filter by Spot
+    </label>
+    <br>
+    <label>
+        <input type="radio" name="filter_type" value="filter_by_number" required>
+        Filter by Number
+    </label>
+    <br>
+    <label>
+        <input type="radio" name="filter_type" value="filter_by_time" required>
+        Filter by Time
+    </label>
+    <br>
+
+    <button type="submit">Apply Filter</button>
+</form>
+
+</body>
+</html>
