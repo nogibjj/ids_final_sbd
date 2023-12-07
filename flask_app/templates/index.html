@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playable Podcast</title>
+    <title>Top 10 Episodes</title>
 </head>
 <body>
-    <h1>Here goes name of first podcast</h1>
-    <audio controls>
-        <source src="{{ audio_url }}" type="audio/mp3">
-        Your browser does not support the audio tag.
-    </audio>
-    <h1>Here goes name of second podcast</h1>
-    <audio controls>
-        <source src="{{ audio_url }}" type="audio/mp3">
-        Your browser does not support the audio tag.
-    </audio>
+
+<h1>Top 10 Podcasts</h1>
+
+{% for show, urls in shows_and_urls.items() %}
+    <h2>{{ show }}</h2>
+    <ul>
+        {% for url in urls %}
+            <li>
+                <audio controls>
+                    <source src="{{ url }}" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+            </li>
+        {% endfor %}
+    </ul>
+{% endfor %}
+
 </body>
 </html>
