@@ -9,6 +9,22 @@
 
 <h1>Top 10 Podcasts</h1>
 
+<form method="POST" action="/">
+    <label>
+        <input type="radio" name="ranking_type" value="ranking_spotify" {% if ranking_type == 'ranking_spotify' %}checked{% endif %}>
+        Filter by Spotify Ranking
+    </label>
+    <label>
+        <input type="radio" name="ranking_type" value="ranking_time" {% if ranking_type == 'ranking_time' %}checked{% endif %}>
+        Filter by Episode Duration
+    </label>
+    <label>
+        <input type="radio" name="ranking_type" value="ranking_episodes" {% if ranking_type == 'ranking_episodes' %}checked{% endif %}>
+        Filter by Total Episodes
+    </label>
+    <button type="submit">Apply Filter</button>
+</form>
+
 {% for show, data in shows_and_data.items() %}
     <h2>{{ show }}</h2>
     <h3>Total Episodes: {{ data['total_episodes'] }}</h3>
