@@ -17,4 +17,4 @@ EXPOSE 5000
 ENV NAME myenv
 
 # Run the Flask application
-CMD ["python", "app3.py", "--host=0.0.0.0", "--port=5000"]
+CMD ["python", "flask_app/app3.py", "--host=0.0.0.0", "--port=5000"]
