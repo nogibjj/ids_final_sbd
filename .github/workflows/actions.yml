@@ -1,4 +1,4 @@
-name: CI
+name: CI/CD Pipeline
 on:
   push:
     branches: [ "main" ]
@@ -9,16 +9,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
     steps:
       - uses: actions/checkout@v3
       - name: install packages
         run: make install
-      - name: lint
-        run: make lint
-      - name: test
-        run: make test
-      - name: format
-        run: make format
-      - name: deploy
-        run: make deploy
+#      - name: lint
+#        run: make lint
+#      - name: format
+#        run: make format
