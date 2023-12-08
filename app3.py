@@ -5,8 +5,8 @@ import pandas as pd
 app = Flask(__name__)
 
 # Read the dataset
-top_200 = pd.read_parquet('https://github.com/nogibjj/ids_final_sbd/raw/main/data/top_200.parquet')
-
+#top_200 = pd.read_parquet('https://github.com/nogibjj/ids_final_sbd/raw/main/data/top_200.parquet')
+top_200 = pd.read_parquet('data/top_200.parquet')
 @app.route("/", methods=['GET', 'POST'])
 def index():
     ranking_type = request.form.get('ranking_type', 'ranking_spotify')
@@ -22,6 +22,8 @@ def index():
     for index, row in top_filtered.iterrows():
         show_name = row['showName']
         total_episodes = row['show_episodes.total']
+        average_episode_t= row['average_ep_duration_minutes']
+        image= row['showImageUrl']
 
         # Convert the URL column to a list, Handle missing or None values in 'ep_audio_preview_url'
         urls = row['ep_audio_preview_url']
@@ -33,6 +35,8 @@ def index():
         if show_name not in shows_and_data:
             shows_and_data[show_name] = {
                 'total_episodes': total_episodes,
+                'av_episode_t':average_episode_t,
+                'image':image,
                 'urls': [],
                 'external_url': row['show_external_url'],
                 'description': row['showDescription']

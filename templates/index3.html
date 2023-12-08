@@ -1,89 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Top 10 Episodes</title>
-    
+
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Circular:wght@400;700&display=swap">
 
     <style>
         body {
             font-family: 'Circular', sans-serif;
             background-color: #1e3264;
-            color: #cdf563; /* Set the font color to #cdf563 */
-            font-size: 18px; /* Set the default font size */
+            color: #cdf563;
+            font-size: 18px;
         }
+
         a {
-            color: #ffffff; /* Set the link color to white */
-            font-size: 20px; /* Set the link font size */
+            color: #ffffff;
+            font-size: 20px;
         }
+
         h1 {
-            font-size: 36px; /* Set the h1 font size */
+            font-size: 36px;
         }
+
         p {
-            font-size: 20px; /* Set the paragraph font size */
-            line-height: 1.5; /* Add some spacing between lines for readability */
+            font-size: 20px;
+            line-height: 1.5;
         }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
         form label {
-            font-size: 18px; /* Set the label font size */
+            font-size: 24px;
+            margin-bottom: 10px;
         }
+
         button {
-            font-size: 20px; /* Set the button font size */
+            font-size: 20px;
+            margin-bottom: 20px;
         }
+
         h2 {
-            font-size: 28px; /* Set the h2 font size */
+            font-size: 28px;
         }
+
         h3 {
-            font-size: 24px; /* Set the h3 font size */
+            font-size: 24px;
         }
+
+        .podcast-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .podcast-container img {
+            max-width: 200px;
+            margin-right: 20px;
+        }
+
+        .podcast-details {
+            flex: 1;
+            margin-top: 20px;
+        }
+
+        .audio-files {
+            margin-right: 20px;
+        }
+
     </style>
 </head>
+
 <body>
 
-<h1>Top 10 Spotify Podcasts</h1>
-<p>Spotify Charts showcase the top 100 podcasts without explicitly detailing the selection criteria. Here, we present the top 10 podcasts in the US region, carefully selected from Spotify's Top 100 list.
-    If you're looking for alternatives, you can generate alternative Top 10 lists based on episode count and episode length. Feel free to explore each podcast further by clicking on the provided links. Additionally, the option to preview the last three episodes of each podcast is available, giving you a comprehensive glimpse into the podcasting landscape.</p>
+    <h1> Alternative Top 10 Spotify Podcasts</h1>
+    <p>Spotify Charts showcase the top 100 podcasts without explicitly detailing the selection criteria. Here, we present the top 10 podcasts in the US region, carefully selected from Spotify's Top 100 list. If you're looking for alternatives, you can generate alternative Top 10 lists based on episode count and episode length. Feel free to explore each podcast further by clicking on the provided links. Additionally, the option to preview the last three episodes of each podcast is available, giving you a comprehensive glimpse into the podcasting landscape.</p>
 
-<form method="POST" action="/">
-    <div style="border: 2px solid #ffffff; padding: 10px; border-radius: 8px; margin-bottom: 10px;">
-        <label  style="font-size: 24px; display: block; margin-bottom: 10px;">
+    <form method="POST" action="/" style="margin-bottom: 20px;">
+        <label style="border: 2px solid #ffffff; padding: 10px; border-radius: 8px;">
             <input type="radio" name="ranking_type" value="ranking_spotify" {% if ranking_type == 'ranking_spotify' %}checked{% endif %}>
-                Top 10 by Spotify Ranking
-         </label>
-    </div>
-    <div style="border: 2px solid #ffffff; padding: 10px; border-radius: 8px; margin-bottom: 10px;">
-        <label  style="font-size: 24px; display: block; margin-bottom: 10px;">
-            <input type="radio" name="ranking_type" value="ranking_time" {% if ranking_type == 'ranking_time' %}checked{% endif %}>
-                Top 10 Longest Episodes
+            Top 10 by Spotify Ranking
         </label>
-    </div>
-    <div style="border: 2px solid #ffffff; padding: 10px; border-radius: 8px; margin-bottom: 10px;">
-        <label  style="font-size: 24px; display: block; margin-bottom: 10px;">
+        <label style="border: 2px solid #ffffff; padding: 10px; border-radius: 8px;">
+            <input type="radio" name="ranking_type" value="ranking_time" {% if ranking_type == 'ranking_time' %}checked{% endif %}>
+            Top 10 by Longest average time of episodes
+        </label>
+        <label style="border: 2px solid #ffffff; padding: 10px; border-radius: 8px;">
             <input type="radio" name="ranking_type" value="ranking_episodes" {% if ranking_type == 'ranking_episodes' %}checked{% endif %}>
             Top 10 by Episode Count
         </label>
-    </div>
-    <button type="submit">Apply Filter</button>
-</form>
+        <button type="submit">Apply Filter</button>
+    </form>
 
-{% for show, data in shows_and_data.items() %}
-    <h2># {{ loop.index }}. {{ show }}</h2>
-    <h3>Total number of episodes: {{ data['total_episodes'] }}</h3>
-    <h3>Link to Podcast: <a href="{{ data['external_url'] }}" target="_blank">{{ data['external_url'] }}</a></h3>
-    <h3>Show description:</h3>
-    <p>{{ data['description'] }}</p>
-    <ul>
-        {% for url in data['urls'] %}
-            <li>
-                <audio controls>
-                    <source src="{{ url }}" type="audio/mp3">
-                    Your browser does not support the audio element.
-                </audio>
-            </li>
-        {% endfor %}
-    </ul>
-{% endfor %}
+
+    {% for show, data in shows_and_data.items() %}
+    <div class="podcast-container">
+        <img src="{{ data['image'] }}" alt="{{ show }} Image" >
+        <div class="podcast-details">
+            <h2># {{ loop.index }}. {{ show }}</h2>
+            <h3>Total number of episodes: {{ data['total_episodes'] }}</h3>
+            <h3>Average length of episodes (minutes): {{ data['av_episode_t'] }}</h3>
+            <h3><a href="{{ data['external_url'] }}" target="_blank">Go to Podcast</a></h3>
+            <p>{{ data['description'] }}</p>
+        </div>
+        <div class="audio-files">
+            <ul>
+                {% for url in data['urls'] %}
+                <li>
+                    <audio controls>
+                        <source src="{{ url }}" type="audio/mp3">
+                        Your browser does not support the audio element.
+                    </audio>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
 
 </body>
+
 </html>
