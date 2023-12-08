@@ -23,8 +23,7 @@ def index():
         show_name = row['showName']
         total_episodes = row['show_episodes.total']
 
-        # Convert the URL column to a list
-        # Handle missing or None values in 'ep_audio_preview_url'
+        # Convert the URL column to a list, Handle missing or None values in 'ep_audio_preview_url'
         urls = row['ep_audio_preview_url']
         if urls:
             urls = urls.split(', ')
