@@ -18,3 +18,6 @@ pandas
 fastparquet
 locust
 spotipy
+Pillow
+matplotlib
+python-dotenv
