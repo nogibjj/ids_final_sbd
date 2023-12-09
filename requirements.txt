@@ -16,3 +16,4 @@ Flask
 requests
 pandas
 fastparquet
+locust
