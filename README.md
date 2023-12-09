@@ -6,7 +6,8 @@
 
 
 
-The Spotify Podcast Analytics Microservice is a Flask-based web application designed to analyze and present insights into the top 200 Spotify podcasts in the US. This microservice focuses on providing information about the top 10 podcasts based on different criteria, allowing users to explore alternative rankings.
+The Spotify Podcast Analytics Microservice is a Flask-based web application designed to analyze and present insights into the top 200 Spotify podcasts in the US. This microservice focuses on providing information about the top 10 podcasts based on different criteria, allowing users to explore alternative rankings. The web app was is available at: [https://alterschart.azurewebsites.net/](https://alterschart.azurewebsites.net/)
+
 
 ### Features
 #### Filtering Options:
@@ -15,11 +16,10 @@ The filter is applied through radio buttons for each criterion.
 #### Top 10 Podcasts Display:
 - The microservice displays the top 10 podcasts based on the selected filter criteria.
 - Podcast details include the show name, total number of episodes, average length of episodes, an external link to the podcast, and a brief description.
-### Episode Previews:
+#### Episode Previews:
   - Users can preview the last three episodes of each podcast using embedded audio players.
   - The audio files are sourced from the provided URLs.
 
-The web app was is available at: [https://alterschart.azurewebsites.net/](https://alterschart.azurewebsites.net/)
 
 ## Table of Contents
 
