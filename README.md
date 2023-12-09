@@ -21,7 +21,7 @@ This microservice provides analytics for the top 200 Spotify podcasts in the US.
 - Teamwork Reflection
 - License
 
-### Installation
+## Installation
 
 - Clone the repository to your local machine:
 ```
@@ -31,7 +31,7 @@ git clone [https://github.com/nogibjj/ids_final_sbd](https://github.com/nogibjj/
 ```
 pip install -r requirements.txt
 ```
-### Usage
+## Usage
 (Ensure you have the required environment variables set for Spotify API access.)
 Run the main data retrieval script:
 ```
@@ -44,36 +44,36 @@ python app3.py
 
 Visit http://localhost:5000/ in your web browser to explore the analytics.
 
-### Microservice
+## Microservice
 
 The microservice is built using Flask, providing a web interface to explore podcast analytics. It reads data from a preprocessed dataset (top_200.parquet) containing information about the top 200 Spotify podcasts in the US.
 
-#### Development Environment
+### Development Environment
 - Language: Python
 - Framework: Flask
 
-### Load Test
+## Load Test
 
 The microservice is capable of handling 10,000 requests per second. The load test is included to verify this performance.
 
 IMAGE GOES HERE
 
 
-### Data Engineering
+## Data Engineering
 
 The project involves the use of Pandas for data engineering. It retrieves information about the top 200 Spotify podcasts and their episodes from the Spotify API. This dataset is used in the microservice. 
 
-### Infrastructure as Code (IaC)
+## Infrastructure as Code (IaC)
 
 
 A CI/CD pipeline includes actions for installation, linting, testing, and formatting (review the badges on top of this readme).
 
 
-### Architectural Diagram
+## Architectural Diagram
 
 DIAGRAM GOES HERE
 
-### GitHub Configurations
+## GitHub Configurations
 The GitHub repository includes GitHub Actions and a .devcontainer configuration for GitHub Codespaces. This ensures the local version of the project is reproducible. GitHub Action build badges for install, lint, test, and format actions are also present.
 
 ## Teamwork Reflection
