@@ -6,7 +6,7 @@
 
 
 
-The Spotify Podcast Analytics Microservice is a Flask-based web application designed to analyze and present insights into the top 200 Spotify podcasts in the US. This microservice focuses on providing information about the top 10 podcasts based on different criteria, allowing users to explore alternative rankings. The web app was is available at: [https://alterschart.azurewebsites.net/](https://alterschart.azurewebsites.net/)
+The Spotify Podcast Analytics Microservice is a Flask-based web application designed to analyze and present insights into the top 200 Spotify podcasts in the US. This microservice focuses on providing information about the top 10 podcasts based on different criteria, allowing users to explore alternative rankings. The web app is available at: [https://alterschart.azurewebsites.net/](https://alterschart.azurewebsites.net/)
 
 
 ### Features
@@ -35,6 +35,58 @@ The filter is applied through radio buttons for each criterion.
 - Teamwork Reflection
 - License
 
+## Microservice
+
+The microservice is built using Flask, providing a web interface to explore podcast analytics. It reads data from a preprocessed dataset (top_200.parquet) containing information about the top 200 Spotify podcasts in the US. The microservice is successfully deployed via Azure Web App to a public endpoint. It is hosted on [Azure Web App URL](https://alterschart.azurewebsites.net/). The Docker container for the microservice is hosted on DockerHub. 
+
+### Code Overview
+The main microservice code is contained in app3.py. The key components are:
+
+#### Flask Application Setup:
+The microservice is initialized as a Flask application.
+The top 200 Spotify podcasts dataset is loaded from a Parquet file (data/top_200.parquet).
+#### Routing and Filtering:
+The / route handles both GET and POST requests.
+Users can select a ranking type (Spotify, time, or episodes) through a form and apply the filter.
+#### Data Processing:
+Data Source: The microservice reads data from a Parquet dataset, ensuring efficient data retrieval and presentation.
+The top 10 podcasts are filtered based on the user's selected ranking type.
+A dictionary (shows_and_data) is constructed to store information about each podcast, including URLs for episode previews.
+#### HTML Rendering:
+The web interface is rendered using the render_template function, with the HTML template located at templates/index3.html.
+The template includes sections for filtering, podcast details, and episode previews.
+
+### Development Environment
+- Language: Python
+- Framework: Flask
+
+## Load Test
+
+The microservice is capable of handling 10,000 requests per second. The load test is included to verify this performance.
+
+IMAGE GOES HERE
+
+
+## Data Engineering
+
+The project involves the use of Pandas for data engineering. It retrieves information about the top 200 Spotify podcasts and their episodes from the Spotify API. This dataset is used in the microservice. 
+
+## Infrastructure as Code (IaC)
+
+A CI/CD pipeline includes actions for installation, linting, testing, and formatting (review the badges on top of this readme).
+
+
+## Architectural Diagram
+
+DIAGRAM GOES HERE
+
+## GitHub Configurations
+The GitHub repository includes GitHub Actions and a .devcontainer configuration for GitHub Codespaces. This ensures the local version of the project is reproducible. GitHub Action build badges for install, lint, test, and format actions are also present.
+
+## Teamwork Reflection
+
+Each team member should submit a separate 1-2 page management report reflecting on the team's functioning. The report includes a reflection on teamwork principles, a peer evaluation with three positive attributes and three areas for improvement, and the outcome of the feedback session with the team.
+
 ## Installation
 
 - Clone the repository to your local machine:
@@ -57,59 +109,5 @@ python app3.py
 ```
 
 Visit http://localhost:5000/ in your web browser to explore the analytics.
-
-## Microservice
-
-The microservice is built using Flask, providing a web interface to explore podcast analytics. It reads data from a preprocessed dataset (top_200.parquet) containing information about the top 200 Spotify podcasts in the US. The microservice is successfully deployed via Azure Web App to a public endpoint. It is hosted on [Azure Web App URL](https://alterschart.azurewebsites.net/). The Docker container for the microservice is hosted on DockerHub. 
-
-### Code Overview
-The main microservice code is contained in app3.py. The key components are:
-
-#### Flask Application Setup:
-The microservice is initialized as a Flask application.
-The top 200 Spotify podcasts dataset is loaded from a Parquet file (data/top_200.parquet).
-#### Routing and Filtering:
-The / route handles both GET and POST requests.
-Users can select a ranking type (Spotify, time, or episodes) through a form and apply the filter.
-#### Data Processing:
-Data Source: The microservice reads data from a Parquet dataset, ensuring efficient data retrieval and presentation.
-The top 10 podcasts are filtered based on the user's selected ranking type.
-A dictionary (shows_and_data) is constructed to store information about each podcast, including URLs for episode previews.
-### HTML Rendering:
-The web interface is rendered using the render_template function, with the HTML template located at templates/index3.html.
-The template includes sections for filtering, podcast details, and episode previews.
-
-### Development Environment
-- Language: Python
-- Framework: Flask
-
-## Load Test
-
-The microservice is capable of handling 10,000 requests per second. The load test is included to verify this performance.
-
-IMAGE GOES HERE
-
-
-## Data Engineering
-
-The project involves the use of Pandas for data engineering. It retrieves information about the top 200 Spotify podcasts and their episodes from the Spotify API. This dataset is used in the microservice. 
-
-## Infrastructure as Code (IaC)
-
-
-A CI/CD pipeline includes actions for installation, linting, testing, and formatting (review the badges on top of this readme).
-
-
-## Architectural Diagram
-
-DIAGRAM GOES HERE
-
-## GitHub Configurations
-The GitHub repository includes GitHub Actions and a .devcontainer configuration for GitHub Codespaces. This ensures the local version of the project is reproducible. GitHub Action build badges for install, lint, test, and format actions are also present.
-
-## Teamwork Reflection
-
-Each team member should submit a separate 1-2 page management report reflecting on the team's functioning. The report includes a reflection on teamwork principles, a peer evaluation with three positive attributes and three areas for improvement, and the outcome of the feedback session with the team.
-
 
 
