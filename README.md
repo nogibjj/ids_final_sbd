@@ -4,8 +4,7 @@
 [![Install](https://github.com/nogibjj/ids_final_sbd/actions/workflows/test.yml/badge.svg)](https://github.com/nogibjj/ids_final_sbd/actions/workflows/test.yml)
 [![Install](https://github.com/nogibjj/ids_final_sbd/actions/workflows/lint.yml/badge.svg)](https://github.com/nogibjj/ids_final_sbd/actions/workflows/lint.yml)
 
-
-
+![alt text](https://github.com/nogibjj/ids_final_sbd/blob/main/images_rm/preview_app.png?raw=true)
 The Spotify Podcast Analytics Microservice is a Flask-based web application designed to analyze and present insights into the top 200 Spotify podcasts in the US. This microservice focuses on providing information about the top 10 podcasts based on different criteria, allowing users to explore alternative rankings. The web app is available at: [https://alterschart.azurewebsites.net/](https://alterschart.azurewebsites.net/)
 
 
