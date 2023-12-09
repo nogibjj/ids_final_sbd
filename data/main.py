@@ -329,3 +329,5 @@ top_200 = top_200.merge(right=ranks, how="left", on="showName")
 
 top_200.to_parquet("top_200.parquet")
 
+if __name__ == "__main__":
+    main()
