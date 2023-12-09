@@ -19,7 +19,7 @@ def index():
         top_filtered = top_200[top_200['ranking_spotify'] < 11].groupby('showName').tail(3)
 
     shows_and_data = {}
-    for i, row in top_filtered.iterrows():
+    for _, row in top_filtered.iterrows():
         show_name = row['showName']
         total_episodes = row['show_episodes.total']
         average_episode_t= row['average_ep_duration_minutes']
