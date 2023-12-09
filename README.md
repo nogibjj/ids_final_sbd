@@ -62,13 +62,22 @@ Visit http://localhost:5000/ in your web browser to explore the analytics.
 
 The microservice is built using Flask, providing a web interface to explore podcast analytics. It reads data from a preprocessed dataset (top_200.parquet) containing information about the top 200 Spotify podcasts in the US. The microservice is successfully deployed via Azure Web App to a public endpoint. It is hosted on [Azure Web App URL](https://alterschart.azurewebsites.net/). The Docker container for the microservice is hosted on DockerHub. 
 
+### Code Overview
+The main microservice code is contained in app3.py. The key components are:
 
-
-
-
-
-
-
+#### Flask Application Setup:
+The microservice is initialized as a Flask application.
+The top 200 Spotify podcasts dataset is loaded from a Parquet file (data/top_200.parquet).
+#### Routing and Filtering:
+The / route handles both GET and POST requests.
+Users can select a ranking type (Spotify, time, or episodes) through a form and apply the filter.
+#### Data Processing:
+Data Source: The microservice reads data from a Parquet dataset, ensuring efficient data retrieval and presentation.
+The top 10 podcasts are filtered based on the user's selected ranking type.
+A dictionary (shows_and_data) is constructed to store information about each podcast, including URLs for episode previews.
+### HTML Rendering:
+The web interface is rendered using the render_template function, with the HTML template located at templates/index3.html.
+The template includes sections for filtering, podcast details, and episode previews.
 
 ### Development Environment
 - Language: Python
