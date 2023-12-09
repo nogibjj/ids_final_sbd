@@ -46,7 +46,15 @@ Visit http://localhost:5000/ in your web browser to explore the analytics.
 
 ## Microservice
 
-The microservice is built using Flask, providing a web interface to explore podcast analytics. It reads data from a preprocessed dataset (top_200.parquet) containing information about the top 200 Spotify podcasts in the US.
+The microservice is built using Flask, providing a web interface to explore podcast analytics. It reads data from a preprocessed dataset (top_200.parquet) containing information about the top 200 Spotify podcasts in the US. The microservice is successfully deployed via Azure Web App to a public endpoint. It is hosted on [Azure Web App URL](https://alterschart.azurewebsites.net/). The Docker container for the microservice is hosted on DockerHub. 
+
+
+
+
+
+
+
+
 
 ### Development Environment
 - Language: Python
