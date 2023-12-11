@@ -57,7 +57,7 @@ The template includes sections for filtering, podcast details, and episode previ
 
 ## Load Test
 
-The microservice is capable of handling 1341 requests per second. The load test is included to verify this performance.
+The microservice is capable of handling 1341 requests per second.
 
 ![alt text](https://github.com/nogibjj/ids_final_sbd/blob/main/images_rm/load_test1.png?raw=true)
 
