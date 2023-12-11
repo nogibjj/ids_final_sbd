@@ -70,7 +70,8 @@ A CI/CD pipeline includes actions for installation, linting, testing, and format
 
 ## Architectural Diagram
 
-DIAGRAM GOES HERE
+![image](https://github.com/nogibjj/ids_final_sbd/assets/143829673/3c60f0ba-8e69-4a60-af33-2e61d846cbfb)
+
 
 ## GitHub Configurations
 The GitHub repository includes GitHub Actions and a .devcontainer configuration for GitHub Codespaces. This ensures the local version of the project is reproducible. GitHub Action build badges for install, lint, test, and format actions are also present.
