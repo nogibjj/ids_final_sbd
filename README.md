@@ -20,19 +20,9 @@ The filter is applied through radio buttons for each criterion.
   - The audio files are sourced from the provided URLs.
 
 
-## Table of Contents
+## Video presentation
+Watch the video presentation [here](https://youtu.be/KZIzitQN4ss) 
 
-- Installation
-- Usage
-- Microservice
-- Load Test
-- Data Engineering
-- Infrastructure as Code (IaC)
-- Continuous Integration and Continuous Delivery (CI/CD)
-- Architectural Diagram
-- GitHub Configurations
-- Teamwork Reflection
-- License
 
 ## Microservice
 
